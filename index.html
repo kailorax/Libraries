@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qlibraries</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+        }
+
+        .logo-container img {
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo-container h1 {
+            color: #004AAD;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            background-color: #004AAD;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: #F8F4F1;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ddd;
+        }
+
+        
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #0079AD;
+            outline: none;
+        }
+
+        .btn {
+            background-color: #0079AD;
+            color: #F8F4F1;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #005d84;
+        }
+
+
+        .hero {
+            background-color: #0079AD;
+            color: #F8F4F1;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .book-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .book-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-card img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .book-card h3 {
+            margin: 10px 0;
+        }
+
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .profile-info {
+            margin-top: 20px;
+        }
+
+        .profile-info p {
+            margin: 10px 0;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        footer {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: white;
+            padding: 40px 0 20px 0;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: #3498db;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #fff;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            background: #3498db;
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+
+        .transaction-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.transaction-table th,
+.transaction-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.transaction-table th {
+    background-color: #004AAD;
+    color: white;
+}
+
+.transaction-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+
+.status-borrowed {
+    background-color: #ffd700;
+    color: #000;
+}
+
+.status-returned {
+    background-color: #90EE90;
+    color: #000;
+}
+
+.status-overdue {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.borrow-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 70%;
+    max-width: 500px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="qlibraries.jpg" alt="Logo Perpustakaan Digital">
+        <h1>Qlibraries</h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#login-page" class="nav-link" data-page="login-page">Login</a></li>
+            <li><a href="#home-page" class="nav-link" data-page="home-page">Home Page</a></li>
+            <li><a href="#profile-page" class="nav-link" data-page="profile-page">Profile</a></li>
+        </ul>
+    </nav>
+
+    <div id="login-page">
+        <div class="login-container">
+            <h2>Login </h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="home-page" style="display: none;">
+        <div class="hero">
+            <h1>Welcome to Qlibraries</h1>
+            <p>Discover thousands of digital books to explore</p>
+        </div>
+        <div class="book-container">
+            <div class="book-card">
+                <img src="Laskar pelangi.jpg" alt="Buku 1">
+                <h3>Laskar Pelangi</h3>
+                <p>Writer: Andrea Hirata</p>
+                <button class="btn">Read now</button>
+            </div>
+            <div class="book-card">
+                <img src="Bumi Manusia - Pramoedya Ananta Toer.jpg" alt="Buku 2">
+                <h3>Bumi Manusia</h3>
+                <p>Writer: Pramoedya Ananta Toer</p>
+                <button class="btn">Read now</button>
+            </div>
+            <div class="book-card">
+                <img src="Dilan1990 (Dilan1).jpg" alt="Buku 3">
+                <h3>Dilan 1990</h3>
+                <p>Writer: Pidi Baiq</p>
+                <button class="btn">Read now</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="profile-page" style="display: none;">
+        <div class="profile-container">
+            <h2>Profile User</h2>
+            <div class="profile-info">
+                <p><strong>Name:</strong> Ratu Balqis</p>
+                <p><strong>Email:</strong> ratthuse@email.com</p>
+                <p><strong>Membership:</strong> Premium</p>
+                <p><strong>The book being read:</strong> 2</p>
+                <p><strong>Books that have been read:</strong> 15</p>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <li><a href="#borrow-page" class="nav-link" data-page="borrow-page">Borrow Books</a></li>
+        <li><a href="#transaction-page" class="nav-link" data-page="transaction-page">Transactions</a></li>
+    </nav>
+
+
+<div id="borrow-page" style="display: none;">
+    <div class="transaction-container">
+        <h2>Borrow Books</h2>
+        <div class="borrow-form">
+            <form id="borrow-form">
+                <div class="form-group">
+                    <label for="book-select">Select Book:</label>
+                    <select id="book-select" required class="form-control">
+                        <option value="">Choose a book</option>
+                        <option value="1">Laskar Pelangi - Andrea Hirata</option>
+                        <option value="2">Bumi Manusia - Pramoedya Ananta Toer</option>
+                        <option value="3">Dilan 1990 - Pidi Baiq</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="borrow-date">Borrow Date:</label>
+                    <input type="date" id="borrow-date" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="return-date">Return Date:</label>
+                    <input type="date" id="return-date" required class="form-control">
+                </div>
+                <button type="submit" class="btn">Submit Borrow Request</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="transaction-page" style="display: none;">
+    <div class="transaction-container">
+        <h2>My Transactions</h2>
+        <table class="transaction-table">
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Borrow Date</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Laskar Pelangi</td>
+                    <td>2025-01-01</td>
+                    <td>2025-01-15</td>
+                    <td><span class="status-badge status-borrowed">Borrowed</span></td>
+                    <td><button class="btn" onclick="returnBook(1)">Return Book</button></td>
+                </tr>
+                <tr>
+                    <td>Bumi Manusia</td>
+                    <td>2024-12-15</td>
+                    <td>2024-12-29</td>
+                    <td><span class="status-badge status-returned">Returned</span></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Dilan 1990</td>
+                    <td>2024-12-01</td>
+                    <td>2024-12-15</td>
+                    <td><span class="status-badge status-overdue">Overdue</span></td>
+                    <td><button class="btn" onclick="returnBook(3)">Return Book</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Confirm Action</h3>
+        <p id="modal-message"></p>
+        <button class="btn" onclick="confirmAction()">Confirm</button>
+    </div>
+</div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Qlibraries is a platform that has free access for everyone to use, this platform also has many books to read.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Fast Link</h3>
+                <ul class="footer-links">
+                    <li><a href="#home-page"><i class="fas fa-angle-right"></i>Home Page</a></li>
+                    <li><a href="#katalog"><i class="fas fa-angle-right"></i>Book Catalog</a></li>
+                    <li><a href="#membership"><i class="fas fa-angle-right"></i>Membership</a></li>
+                    <li><a href="#faq"><i class="fas fa-angle-right"></i>FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Service</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-book-reader"></i>Digital lending</a></li>
+                    <li><a href="#"><i class="fas fa-laptop"></i>Access E-Book</a></li>
+                    <li><a href="#"><i class="fas fa-headset"></i>Help 24/7</a></li>
+                    <li><a href="#"><i class="fas fa-mobile-alt"></i>Mobile Application</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i>Jl. Menteng No. 123, Jakarta</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i>+62 (021) 123-4567</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i>info@Qlibraries.com</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i>Monday - Friday: 08:00 - 20:00</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Perpustakaan Digital. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('#login-page, #home-page, #profile-page').forEach(page => {
+                page.style.display = 'none';
+            });
+        
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            showPage('home-page');
+        });
+        showPage('login-page');
+
+        
+document.getElementById('borrow-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const book = document.getElementById('book-select').value;
+    const borrowDate = document.getElementById('borrow-date').value;
+    const returnDate = document.getElementById('return-date').value;
+    
+    showModal(`Confirm borrowing the selected book from ${borrowDate} to ${returnDate}?`);
+});
+
+function returnBook(bookId) {
+    showModal(`Confirm returning book ID ${bookId}?`);
+}
+
+function showModal(message) {
+    const modal = document.getElementById('confirmation-modal');
+    document.getElementById('modal-message').textContent = message;
+    modal.style.display = 'block';
+}
+
+function confirmAction() {
+    
+    alert('Action confirmed! Transaction processed successfully.');
+    document.getElementById('confirmation-modal').style.display = 'none';
+}
+
+
+document.querySelector('.close-modal').addEventListener('click', () => {
+    document.getElementById('confirmation-modal').style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    const modal = document.getElementById('confirmation-modal');
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+
+function showPage(pageId) {
+    document.querySelectorAll('#login-page, #home-page, #profile-page, #borrow-page, #transaction-page').forEach(page => {
+        page.style.display = 'none';
+    });
+    document.getElementById(pageId).style.display = 'block';
+}
+    </script>
+</body>
+</html>
